@@ -1,0 +1,13 @@
+:root {
+    --primary-color: "#065567";
+}
+
+.container {
+    page-break-after: always;
+}
+
+.container header {
+}
+
+.container footer {
+}
