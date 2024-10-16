@@ -55,7 +55,7 @@
             @if ($tourPlanLength > 2)
                 <tr style="width:100%">
                     <td colspan="3" style="padding-bottom: 5px;">
-                        <span style="font-weight: bold;margin-right: 20px">von</span>
+                        <span style="font-weight: bold;margin-right: 20px">before</span>
                         <span style="font-weight: bold;margin-right: 20px">{{ trim($proposalTourPlan[0]->streetNumber) }}
                         </span>
                         <span style="font-weight: bold;margin-right: 20px">{{ trim($proposalTourPlan[0]->cim) }}</span>

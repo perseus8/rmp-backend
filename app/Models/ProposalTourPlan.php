@@ -35,7 +35,8 @@ class ProposalTourPlan extends Model
         'inter_distance',
         'sort_index',
         'start_index',
-        'kuchenmonteur'
+        'kuchenmonteur',
+        'onloadingIndex'
     ];
 
     public function packingMaterials()

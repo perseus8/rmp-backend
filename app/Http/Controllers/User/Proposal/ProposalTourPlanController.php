@@ -122,6 +122,7 @@ class ProposalTourPlanController extends Controller
                             'inter_distance' => $place['inter_distance'] ?? null,
                             'sort_index' => $place['sort_index'],
                             'start_index' => $place['start_index'] ?? null,
+                            'onloadingIndex' => $place['onloadingIndex'] ?? 0,
                         ]);
                     } else {
                         $tourPlan = new ProposalTourPlan();
@@ -146,6 +147,7 @@ class ProposalTourPlanController extends Controller
                         $tourPlan->note = $place['note'] ?? null;
                         $tourPlan->sort_index = $place['sort_index'] ?? null;
                         $tourPlan->start_index = $place['start_index'] ?? null;
+                        $tourPlan->onloadingIndex = $place['onloadingIndex'] ?? 0;
                         // Assuming you have a proposalId in your request
                         $tourPlan->proposal_id = $proposal_id;
 

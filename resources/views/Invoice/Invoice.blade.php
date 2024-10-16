@@ -607,7 +607,7 @@
 
             <table style="margin-top: 10px;width:100%;z-index:1300; font-size:16px;">
                 <tr style="width:100%">
-                    <td colspan="4" style="font-weight: bold;padding-bottom: 10px">Packmittel:
+                    <td colspan="4" style="font-weight: bold;padding-bottom: 10px">Packaging:
                     </td>
                 </tr>
                 @foreach ($propsoalPackingMaterials as $pMaterial)
@@ -823,7 +823,7 @@
                 @if ($tourPlanLength > 2)
                     <tr style="width:100%">date
                         <td colspan="3" style="padding-bottom: 5px;color:#000">
-                            <span style="font-weight: bold;margin-right: 20px">von</span>
+                            <span style="font-weight: bold;margin-right: 20px">before</span>
                             <span
                                 style="font-weight: normal;margin-right: 20px">{{ trim($proposalTourPlan[0]->streetNumber) }}
                             </span>
@@ -974,7 +974,7 @@
 
                     <tr style="width:100%">date
                         <td colspan="3" style="padding-bottom: 5px;color:#000">
-                            <span style="font-weight: bold;margin-right: 20px">von</span>
+                            <span style="font-weight: bold;margin-right: 20px">before</span>
                             <span style="font-weight: normal;margin-right: 20px">
                                 @if (count($proposalTourPlan) > $index + 1)
                                     {{ trim($proposalTourPlan[$index + 1]->streetNumber) }}
@@ -1206,7 +1206,7 @@
 
                 <tr style="width:100%">date
                     <td colspan="3" style="font-weight: bold;padding-bottom: 5px">
-                        <span style="margin-right: 20px">von</span>
+                        <span style="margin-right: 20px">before</span>
                         <span style="margin-right: 20px">88212 Ravensburg </span>
                         <span style="margin-right: 20px">Gartenstraße 17</span>
                         <span style="margin-right: 20px">EG</span>
@@ -1217,7 +1217,7 @@
                 </tr>
                 <tr style="width:100%">date
                     <td colspan="3" style="font-weight: bold;padding-bottom: 5px">
-                        <span style="margin-right: 20px">von</span>
+                        <span style="margin-right: 20px">before</span>
                         <span style="margin-right: 20px">88212 Ravensburg </span>
                         <span style="margin-right: 20px">Gartenstraße 17</span>
                         <span style="margin-right: 20px">EG + 20m</span>
@@ -1294,7 +1294,7 @@
 
                 <tr style="width:100%">date
                     <td colspan="3" style="font-weight: bold;padding-bottom: 5px">
-                        <span style="margin-right: 20px">von</span>
+                        <span style="margin-right: 20px">before</span>
                         <span style="margin-right: 20px">88212 Ravensburg </span>
                         <span style="margin-right: 20px">Gartenstraße 17</span>
                         <span style="margin-right: 20px">EG</span>
@@ -1305,7 +1305,7 @@
                 </tr>
                 <tr style="width:100%">date
                     <td colspan="3" style="font-weight: bold;padding-bottom: 5px">
-                        <span style="margin-right: 20px">von</span>
+                        <span style="margin-right: 20px">before</span>
                         <span style="margin-right: 20px">88212 Ravensburg </span>
                         <span style="margin-right: 20px">Gartenstraße 17</span>
                         <span style="margin-right: 20px">EG + 20m</span>
