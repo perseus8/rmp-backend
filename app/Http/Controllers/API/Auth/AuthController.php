@@ -8,6 +8,7 @@ use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Date;
 use Illuminate\Support\Facades\Validator;
+use App\Models\User;
 
 class AuthController extends Controller
 {
@@ -42,13 +43,15 @@ class AuthController extends Controller
             ], 422);
         }
 
-        if (Auth::attempt([
-            'email' => $request->email,
-            'password' =>  $request->password,
-            'role' => 'admin',
-        ])) {
+        if (
+            Auth::attempt([
+                'email' => $request->email,
+                'password' => $request->password,
+                'role' => 'admin',
+            ])
+        ) {
 
-            $expired_at =  Date::now()->addDay();
+            $expired_at = Date::now()->addDay();
             $token = Auth::user()->createToken('api-token');
 
 
@@ -87,12 +90,14 @@ class AuthController extends Controller
             ], 422);
         }
 
-        if (Auth::attempt([
-            'email' => $request->email,
-            'password' =>  $request->password,
-            'role' => 'cal_user',
-        ])) {
-            $expired_at =  Date::now()->addDay();
+        if (
+            Auth::attempt([
+                'email' => $request->email,
+                'password' => $request->password,
+                'role' => 'cal_user',
+            ])
+        ) {
+            $expired_at = Date::now()->addDay();
             $token = Auth::user()->createToken('api-token');
 
 
@@ -132,10 +137,12 @@ class AuthController extends Controller
             ], 422);
         }
 
-        if (Auth::attempt([
-            'email' => $request->email,
-            'password' =>  $request->password
-        ])) {
+        if (
+            Auth::attempt([
+                'email' => $request->email,
+                'password' => $request->password
+            ])
+        ) {
             $token = Auth::user()->createToken('api-token')->plainTextToken;
 
             return response()->json([
@@ -166,25 +173,16 @@ class AuthController extends Controller
                 "data" => []
             ], 422);
         }
-
-        if (Auth::attempt([
+        $result = User::create([
+            'name' => 'Test User',
             'email' => $request->email,
-            'password' =>  $request->password
-        ])) {
-            $token = Auth::user()->createToken('api-token')->plainTextToken;
-
-            return response()->json([
-                "status" => 200,
-                "message" => "Successfully Login",
-                "data" => ['token' => $token]
-            ], 200);
-        }
-
+            'password' => $request->password
+        ]);
         return response()->json([
-            "status" => 401,
-            "message" => "Invalid credentials",
-            "data" => []
-        ], 401);
+            "status" => 200,
+            "message" => "Proposal successfully created.",
+            "data" => ['user' => $result]
+        ], 200);
     }
 
     public function expireToken(Request $request)
