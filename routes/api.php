@@ -86,6 +86,13 @@ Route::middleware('auth:sanctum', 'cors')->group(function () {
             Route::get('/', [FeeController::class, 'getFees']);
             Route::post('/update', [FeeController::class, 'updateFees']);
         });
+        Route::prefix('packing-materials')->group(function () {
+            Route::get('/data/{id}', [ProposalPackingMaterialController::class, 'getPackingMaterialsData']);
+            Route::get('/list', [ProposalPackingMaterialController::class, 'getPackingMaterials']);
+            Route::post('/create', [ProposalPackingMaterialController::class, 'createPackingMaterial']);
+            Route::delete('/delete/{id}', [ProposalPackingMaterialController::class, 'deletePackingMaterials']);
+            Route::put('/update/{id}', [ProposalPackingMaterialController::class, 'updatePackagingMaterial']);
+        });
     });
 
     // cal user routes

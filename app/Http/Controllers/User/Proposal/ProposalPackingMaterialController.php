@@ -62,5 +62,98 @@ class ProposalPackingMaterialController extends Controller
 
     public function getPackingMaterials(Request $request)
     {
+        try {
+            $packaging = PackingMaterial::all();
+            return response()->json([
+                "status" => 200,
+                "message" => "Successfully loaded",
+                "data" => ['packaging' => $packaging]
+            ], 200);
+        } catch (Exception $ex) {
+            return response()->json([
+                "status" => 500,
+                "message" => "Loading Error !",
+                "data" => ['packaging' => []]
+            ], 500);
+        }
     }
+
+    public function getPackingMaterialsData(Request $request)
+    {
+        $id = $request->id;
+        try {
+            $packaging = PackingMaterial::where('id', $id)->get();
+            if (count($packaging) == 0) {
+                return response()->json([
+                    "status" => 404,
+                    "message" => "Data not found",
+                    "data" => []
+                ], 404);
+            } else {
+                return response()->json([
+                    "status" => 200,
+                    "message" => "Successfully loaded",
+                    "data" => ['packaging' => $packaging[0]]
+                ], 200);
+            }
+        } catch (Exception $ex) {
+            return response()->json([
+                "status" => 500,
+                "message" => "Loading Error !",
+                "data" => []
+            ], 500);
+        }
+    }
+
+    public function deletePackingMaterials(Request $request)
+    {
+        try {
+            PackingMaterial::where('id', $request->id)->delete();
+            return response()->json([
+                "status" => 200,
+                "message" => "Successfully Removed",
+                "data" => []
+            ], 200);
+        } catch (Exception $ex) {
+            return response()->json([
+                "status" => 500,
+                "message" => "Error, not updated!",
+                "data" => []
+            ], 500);
+        }
+    }
+
+    public function updatePackagingMaterial(Request $request)
+    {
+        try {
+            $packaging = PackingMaterial::where('id', $request->id)->get();
+
+            if ($packaging->count() == 0) {
+                return response()->json([
+                    "status" => 404,
+                    "message" => "User not found",
+                    "data" => []
+                ], 404);
+            } else {
+
+                $packaging[0]->update([
+                    'verpackungs_material' => $request->name,
+                    'price' => $request->email,
+                ]);
+
+                return response()->json([
+                    "status" => 200,
+                    "message" => "Successfully Updated",
+                    "data" => ['packaging' => $packaging[0]]
+                ], 200);
+            }
+        } catch (Exception $ex) {
+            return response()->json([
+                "status" => 500,
+                "message" => "not updated !",
+                "data" => []
+            ], 500);
+        }
+    }
+
 }
