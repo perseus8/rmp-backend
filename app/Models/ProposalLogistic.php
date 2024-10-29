@@ -20,6 +20,7 @@ class ProposalLogistic extends Model
         'plusz_szolgaltatas',
         'plusz_szolgaltatas_cost',
         'plusz_szolgaltatas_date',
+        'plusz_szolgaltatas_date_end',
         'megjegyzés',
         'pkw',
         'hanger',

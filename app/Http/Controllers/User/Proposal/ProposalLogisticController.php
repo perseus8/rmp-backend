@@ -60,6 +60,7 @@ class ProposalLogisticController extends Controller
                 'plusz_szolgaltatas' =>  $request->plusz_szolgaltatas,
                 'plusz_szolgaltatas_cost' =>  $request->plusz_szolgaltatas_cost,
                 'plusz_szolgaltatas_date' => $request->plusz_szolgaltatas_date,
+                'plusz_szolgaltatas_date_end' => $request->plusz_szolgaltatas_date_end,
                 'megjegyzes' =>  $request->megjegyzes,
                 'pkw' =>  $request->pkw,
                 'hanger' =>  $request->hanger,

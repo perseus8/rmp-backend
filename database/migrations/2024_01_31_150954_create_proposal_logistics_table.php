@@ -23,6 +23,7 @@ return new class extends Migration
             $table->string('plusz_szolgaltatas')->nullable();
             $table->decimal('plusz_szolgaltatas_cost', 10, 2)->nullable();
             $table->string('plusz_szolgaltatas_date')->nullable();
+            $table->string('plusz_szolgaltatas_date_end')->nullable();
             $table->string('megjegyzés')->nullable();
             $table->integer('pkw')->nullable();
             $table->integer('hanger')->nullable();
